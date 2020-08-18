@@ -1,0 +1,581 @@
+@charset "UTF-8";
+@import "pure.css";
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('../fonts/alegreya-sans-v8-latin-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'MainSerifs';
+    src: url('../fonts/Alegreya-Regular-Modified.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Sebastian';
+    src: url('../fonts/Sebastian-FigBass-Modified.woff') format('woff');
+}
+
+html {
+    font-size: 100%;
+    font-family: 'Alegreya Sans',sans-serif;
+}
+
+html, body, h1, h2, h3, h4, div, p  {
+    margin: 0; 
+    padding: 0; 
+    border-width: 0;
+}
+
+p {padding: .4em 0; }
+button, input, optgroup, select, textarea { color: #000; }
+a,a:visited, .btn { color: inherit; text-decoration: none; }
+a:hover, .btn:hover { cursor: pointer; color: inherit; }
+.exercise-status-col > a, .exercise-status-col > a:visited { color: blue; }
+body {
+    text-align: center;
+}
+body, #mainmenu, #helpmenu {
+    background-color: #335271;
+}
+#mainmenu, #helpmenu {
+    background-color: rgba(80,80,80,1);
+}
+
+/*--------------------------------------------------*/
+/* Structural/Layout */
+#container {
+    width: 100%;
+    margin: 50px auto;
+    margin-bottom: 30px;
+    text-align: center;
+}
+#footer {
+    min-height: 1em;
+}
+#staff-area {
+    /*width: 888px;*/
+    width: 100%;
+    margin: 0px auto;
+    position:relative;
+    z-index:0;
+    padding:0;
+    overflow:hidden;
+}
+#staff-toolbar {
+    position: absolute;
+    height: 35px;
+    width: 100%;
+    padding: 0px;
+    z-index: 1;
+}
+#staffwrapper {
+    height: 320px;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+#staff, #staff-status, .header {
+    width: 50em;
+}
+#staff {
+    height: 500px;
+    position: static;
+    z-index: 1;
+    margin: 0;
+    border: 0px solid black;
+    padding: 0;
+}
+#staff-status {
+    margin: 0em auto;
+    margin-bottom: 1em;
+    min-height: 100px;
+    /*height: 100%;
+    overflow: hidden;
+    overflow-y:auto;*/
+}
+.content-area, button, input, optgroup, select, textarea {
+    background-color: rgb(238, 238, 221);
+    color: black;
+}
+#mainmenu, #helpmenu {
+    border: 0px solid black;
+    border-radius: 6px;
+}
+#display-settings {
+    color: #fff;
+    font-size: 0.9em;
+}
+.mainmenu-section {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+#mainmenu, #helpmenu {
+    display: none;
+    position: absolute;
+    right: 1em;
+    z-index: 100;
+    margin: 1em auto;
+    text-align: left;
+    padding: 1em;
+    line-height: 1.2em;
+}
+.mainmenu-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/*--------------------------------------------------*/
+/* Header Styles */
+.header {
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+    font-size: 1em;
+    background: transparent;
+    color: white;
+    position: relative;
+    align: center;
+    text-align: left;
+}
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.header ul li {
+    display: inline;
+}
+.header .js-keysignature-widget {
+    padding-left: 0em;
+    padding-right: 2em;
+}
+.header .js-btn-menu {
+    padding-left: 2em;
+    padding-right: 0em;
+    font-size: 1em;
+    float:right;
+}
+.header .js-btn-help, .tip {
+    padding-left: 2em;
+    padding-right: 0em;
+    font-size: 1em;
+    float: right;
+}
+
+/*--------------------------------------------------*/
+/* Settings Styles */
+fieldset.settings-notation {
+    border: 1px solid white;
+    border-radius: 6px;
+    width: auto;
+    display: inline-block;
+    padding: 12px;
+    text-align: left;
+    margin-top: 12px;
+}
+.settings-notation ol {
+    margin: 0;
+    padding: 0;
+}
+.settings-notation > ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    list-style-type: none;
+}
+.settings-notation legend {
+    padding: 4px 8px 0px 8px;
+}
+
+/*--------------------------------------------------*/
+/* Notifications Styles */
+.notificationAlerts {
+    color: white;
+    background-color: black;
+    padding: 3px 6px;
+    border-radius: 6px;
+    float: right;
+    min-width: 14px;
+    min-height: 19px;
+    cursor: pointer;
+}
+#notifications {
+    width: 640px;
+    margin: 0 auto;
+    text-align: left;
+}
+.notification {
+    position: relative;
+    margin-bottom: 1em;
+    border: 0px solid #fff;
+    border-radius: 6px;
+    background-color: white;
+    padding: 1em;
+    color: #000;
+}
+.notification .title b {
+    font-family: inherit;
+}
+.notification.error .title {
+    color: red;
+}
+.notification.success .title {
+    color: green;
+}
+.notification.info .title {
+    color: blue;
+}
+.notification a {
+    color: #3366BB;
+}
+.notification .btn {
+    border: 1px solid #000;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+.notification .moredetails, .delete {
+    float: right;
+    margin-left: 0.5em;
+}
+.notification .details {
+    display: block;
+    margin-top: 0.5em;
+}
+
+/*--------------------------------------------------*/
+/* Exercise Status Styles */
+.exercise-status-area {
+    margin: 0;
+    padding: 0.5em 0.75em;
+    color: #333;
+    border: 1px solid black;
+    border-radius: 6px;
+    text-align: left;
+}
+.exercise-status-col,
+.exercise-status-col {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}
+.exercise-status-col1 {
+    width: 11em;
+}
+.exercise-status-col1 p {
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+}
+.exercise-status-col2 {
+    width: 24em;
+    margin-left: 1em;
+}
+.exercise-status-state {
+    padding: 4px 6px 2px 6px;
+    margin: 0;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 6px;
+    background-color: black;
+}
+.exercise-status-next-btn {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+/*--------------------------------------------------*/
+/* Exercise form */
+.exerciseform label {
+    display: block;
+}
+.exerciseform div {
+    margin: 5px 0;
+}
+.exerciseform .help {
+    font-size: .95em;
+    color: #333;
+    background-color: rgba(153, 153, 153, 0.38);
+    margin: .5em 0;
+    padding: .5em;
+}
+.exercise-collapse-all {
+    border-bottom: 1px solid #666;
+    padding: .5em 0;
+}
+ul.exercise-groups, ul.exercise-groups ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.exercise-groups {
+}
+ul.exercise-groups .btn {
+    padding: .5em;
+}
+ul.exercise-groups > li {
+    display: block;
+}
+ul.exercise-groups > li li {
+    padding-left: 2em;
+}
+ul.exercise-groups .group {
+    display: block;
+    border-bottom: 1px solid #666;
+    font-size: 125%;
+}
+ul.exercise-groups .btn.btn-group,
+ul.exercise-groups .btn.btn-exercise,
+ul.exercise-groups .actions{
+    display: inline-block;
+}
+ul.exercise-groups .actions {
+    
+}
+ul.exercise-groups li.even {
+    background-color: inherit;
+}
+ul.exercise-groups li.odd {
+    background-color: rgba(0,0,0,.1);
+}
+ul.menu-group-list {
+    list-style: none;
+    padding: 0.5em;
+    border-radius: 6px;
+    margin: .5em 0;
+    max-height: 20em;
+    max-width: 20em;
+    overflow: auto;
+    line-height: 1em;
+    background-color: rgb(10,80,80);
+}
+#mainmenu-exercise-area {
+    text-align: left;
+}
+ul.menu-group-list a {
+}
+ul.menu-group-list li {
+    display: inline-block;
+    margin: 0.2em;
+    padding: 0.2em 0.4em;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 3px;
+}
+
+.refresh-icon {
+    background: url(../img/icon-refresh.png); /* Wikimedia commons */
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    height: 25px;
+    width: 25px;
+    margin: 4px 0 0 8px;
+    float: right;
+}
+.refresh-icon:hover {
+    background: url(../img/icon-refresh-hover.png);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+}
+.save-icon {
+    background: url(../img/icon-save.png); /* Wikimedia commons */
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    height: 25px;
+    width: 25px;
+    margin: 4px 0 0 8px;
+    float: right;
+}
+.save-icon:hover {
+    background: url(../img/icon-save-hover.png);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+}
+.download-icon {
+    background: url(../img/icon-download.png); /* Wikimedia commons */
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    height: 25px;
+    width: 25px;
+    margin: 4px 0 0 8px;
+    float: right;
+}
+.download-icon:hover {
+    background: url(../img/icon-download-hover.png);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+}
+.sig-lock-block {
+    line-height: 3em;
+    margin-left: 50px;
+}
+.sig-lock-inline {
+    margin: 0 15px;
+}
+/*--------------------------------------------------*/
+/* Custom Icons for this project by Jeff Martini */
+.icon-btn {
+    background: url(../img/icon-btn-sprite.png) no-repeat;
+    height: 25px;
+    margin: 4px 0 0 8px;
+}
+.icon-btn-left { float: left; }
+.icon-btn-right { float: right; }
+.icon-btn-camera { background-position: -410px -50px; width: 50px; }
+.icon-btn-camera:hover { background-position: -410px -150px; width: 50px; }
+
+/*--------------------------------------------------*/
+/* Classes to be used in conjunction with ionicons
+ * http://ionicons.com/ */
+
+.ioncustom-siglocked {
+    color: #ffffff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.ioncustom-sigunlocked {
+    color: #ffffff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/*--------------------------------------------------*/
+/* On-screen keyboard */
+
+.keyboard-wrapper {
+    width: 888px;
+    margin: 20px auto;
+    margin-bottom: 0px;
+    border: 0px solid #ffffff;
+    padding: 0px 6px;/*compare keyboard-pedals pedal margin-top*/
+    border-radius: 0px;
+    /*border-radius: 6px;*/
+    position: relative;
+    background-color: rgba(255,255,255,0);
+}
+.keyboard-controls {
+    height: 40px;
+    margin: 0px;
+    padding: 5px 0;
+    border: 0px;
+}
+.transpose-control {
+    width: 150px;
+    margin: 2px auto;
+    color: white;
+}
+.transpose-icon {
+    background-color: red;
+    width: 28px;
+    height: 20px;
+}
+.metronome-control {
+    /*float: right;*/
+    color: #fff;
+    margin: auto;
+    width: 150px;
+}
+.metronome-control-input {
+    font-size: 0.7em;
+    text-align: center;
+    width: 2em;
+    height: 20px;
+    margin: 0px 10px 0px 10px;
+    border: none;
+}
+.metronome-icon {
+    background-color: #5c5c5c;
+    height: 20px;
+    padding: 3px 6px 1px 6px;
+}
+.metronome-icon:hover {
+    background-color: #b6a9a4;
+}
+.metronome-icon:active, .metronome-icon-active {
+    background-color: #8b0000;
+}
+.metronome-led {
+    background-color: transparent;
+    width: 8px;
+    height: 8px;
+    margin-top: 6px;
+}
+.metronome-led-on {
+    background-color: red;
+}
+#metronome-audio {
+    display: hidden;
+}
+.keyboard-area {
+    margin:0 10px;
+    padding-bottom: 6px;
+}
+.keyboard-pedals {
+    margin: 0px auto;
+    width: 90px;
+}
+.keyboard-pedals .pedal {
+    float: left;
+    display: block;
+    background-color: #b5a642;
+    border: 0px solid #fff;
+    width: 20px; 
+    margin-top: 6px;/*compare keyboard-wrapper padding*/
+    margin-right: 15px;
+    height: 30px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: pointer;
+}
+.keyboard-pedals .pedal:last-of-type {
+    margin-right: 0px;
+}
+.keyboard-pedals .pedal-active {
+    background-color: #665e25;
+}
+
+/*--------------------------------------------------*/
+/* Utilities */
+
+.hide { display: none; }
+/*.fade {
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+.fade-in { opacity: 1; }
+.fade-out { opacity: 0; }
+*/
+
+.widget-keysignature {
+    display: inline;
+}
+.widget-keysignature optgroup {
+    margin: 0;
+    padding-top: 0.5em;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    border: 1px solid #555;
+    border-bottom-width: 0px;
+}
+.widget-keysignature optgroup:last-of-type {
+    border-bottom-width: 1px;
+}
+.widget-keysignature optgroup option {
+    text-align: left;
+    margin: 0;
+    padding-left: 0.5em;
+    padding-right: 0.25em;
+}
+.widget-keysignature-header {
+    background-color: rgba(255,255,255,0.3);
+    padding: 8px 6px;
+    border-radius: 3px;
+}
+.figuredbass {
+    font-family: Sebastian;
+    font-size: 32px;
+    margin-left: -12px;
+    margin-right: 6px;
+    line-height: 18px;
+}
